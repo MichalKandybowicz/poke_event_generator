@@ -1,6 +1,5 @@
 
 import random
-import secrets
 
 
 class RandomEvent:
@@ -29,9 +28,9 @@ class RandomEvent:
                 'Idąc wąską, krętą, ścierzką', 'Między skałami w głębi lasu', 'Podczas wycieczki'
             ],
             "tunel": [
-                'Idąc ścierzką w kanionie szukając wejścia do starych jaskiń',
+                'Już miałeś wrcać gdy',
                 'W ciemnym zaułku daleko od szlaku',
-                'Podczas wycieczki po tunelach'
+                'Podczas wycieczki po tunelach',
             ],
             "miasto": ['Idąc ścierzką', 'W ciemnym zaułku', 'Podczas wycieczki'],
             "wyspy": ['Płynąc łodzią', 'Idąc w zdłoż plarzy', 'Spacerując po brzegu wyspy'],
@@ -47,8 +46,11 @@ class RandomEvent:
         ]
         self.part_3 = [
             f'obcego trenera,',
-            f'nieznanego {self.pokemon}a,',
+            f'nieznanego trenera,',
+            f'dziwnie ubranego trenera,',
             f'niewielkiego {self.pokemon}a,',
+            f'dzikiego {self.pokemon}a',
+            f'ogromnego {self.pokemon}a',
             f'dzikiego {self.pokemon}a',
         ]
 
@@ -79,7 +81,7 @@ class RandomEvent:
             'Starasz się zblirzyć': [
                 'Niestety ten widząc cię odrazu ucieka gubiąc {przedmiot}',
                 'Niestety ten widząc cię odrazu ucieka goniąc go twój pokemon wpada w pułapkę i traci punkty zdrowia',
-                'Przeciwnik atakuje, wychodząc z starcia zwycięsko zyskuje {exp}',
+                'Przeciwnik atakuje, wychodząc z starcia zwycięsko twój pokemon zyskuje {exp}',
                 'Przeciwnik atakuje, dzięki wygranej twoja dróżyna zyskuję przywiązanie',
                 'Przeciwnik atakuje a twój pokemon staje w twojej obronie, niestety przegrywa tracąc {hp}',
                 ],
@@ -101,14 +103,13 @@ class RandomEvent:
         }
 
 
-def main(dzicz, pokemon):
+def main(dzicz, pokemon, choices):
     for i in range(10):
-        wyprawa = RandomEvent(dzicz, pokemon)
+        wyprawa = RandomEvent(dzicz, pokemon, choices)
         wyprawa.print_event()
         print('----------------------')
 
 
-
 if __name__ == '__main__':
-    main('tunel', 'Bulbazaur')
+    main('wyspy', 'Bulbazaur', 2)
 
